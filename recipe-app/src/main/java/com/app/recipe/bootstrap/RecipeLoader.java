@@ -120,6 +120,10 @@ public class RecipeLoader implements ApplicationListener<ContextRefreshedEvent> 
 						+ "\n" + "\n"
 						+ "Read more: http://www.simplyrecipes.com/recipes/perfect_guacamole/#ixzz4jvpiV9Sd");
 
+		guacRecipe.setUrl("https://www.simplyrecipes.com/recipes/perfect_guacamole/");
+		guacRecipe.setServings(4);
+		guacRecipe.setSource("Simply Recipes");
+		
 		Notes guacNotes = new Notes();
 		guacNotes.setRecipeNotes(
 				"For a very quick guacamole just take a 1/4 cup of salsa and mix it in with your mashed avocados.\n"
