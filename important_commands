@@ -27,3 +27,14 @@ docker rmi $(docker images -q)
 docker rmi $(docker images -a -q)
 
 docker system prune - which will not only remove dangling images but it will also remove all stopped containers, all networks not used by at least 1 container, all dangling images and build caches
+
+Command for running CentOS
+docker run -d centos tail -f /dev/null
+
+Entering shell for CentOS
+docker exec -it <container_name> bash
+
+Creating a docker image from a dockerfile:-
+docker build -t spring-boot-docker .
+
+docker run -p 8080:8080 -d spring-boot-docker
