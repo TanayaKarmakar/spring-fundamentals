@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.context.ApplicationListener;
+import org.springframework.context.annotation.Profile;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
 
@@ -20,6 +21,7 @@ import com.app.recipe.repositories.RecipeRepository;
 import com.app.recipe.repositories.UnitOfMeasureRepository;
 
 @Component
+@Profile("default")
 public class RecipeLoader implements ApplicationListener<ContextRefreshedEvent> {
 	private final RecipeRepository recipeRepository;
 	private final CategoryRepository categoryRepository;
