@@ -1,9 +1,10 @@
 package com.app.recipe.repositories;
 
-import com.app.recipe.domain.Category;
+import java.util.Optional;
+
 import org.springframework.data.repository.CrudRepository;
 
-import java.util.Optional;
+import com.app.recipe.domain.Category;
 
 /**
  * Created by jt on 6/13/17.

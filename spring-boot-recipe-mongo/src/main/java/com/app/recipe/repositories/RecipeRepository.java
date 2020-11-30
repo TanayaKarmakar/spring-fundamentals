@@ -1,7 +1,8 @@
 package com.app.recipe.repositories;
 
-import com.app.recipe.domain.Recipe;
 import org.springframework.data.repository.CrudRepository;
+
+import com.app.recipe.domain.Recipe;
 
 /**
  * Created by jt on 6/13/17.
