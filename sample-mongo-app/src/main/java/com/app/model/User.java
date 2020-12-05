@@ -4,11 +4,16 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import io.swagger.annotations.ApiModelProperty;
+
 @Document
 public class User {
 	@Id
 	private String id;
+	@ApiModelProperty(value = "User Fisrt Name", required = true)
 	private String firstName;
+	
+	@ApiModelProperty(value = "User Last Name", required = true)
 	private String lastName;
 	
 	@DBRef

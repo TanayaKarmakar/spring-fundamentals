@@ -38,6 +38,8 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public User createUser(User user) {
+		Address savedAddress = addressRepository.save(user.getAddress());
+		user.setAddress(savedAddress);
 		User savedUser = userRepository.save(user);
 		return savedUser;
 	}

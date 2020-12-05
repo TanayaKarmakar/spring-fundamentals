@@ -9,7 +9,7 @@ import com.app.model.User;
 import com.app.repository.AddressRepository;
 import com.app.repository.UserRepository;
 
-@Component
+//@Component
 public class MongoBootstrap implements ApplicationListener<ContextRefreshedEvent> {
 	private final UserRepository userRepository;
 	private final AddressRepository addressRepository;
