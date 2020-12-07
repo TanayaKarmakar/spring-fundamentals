@@ -1,19 +1,28 @@
 package com.app.recipe.bootstrap;
 
-import com.app.recipe.domain.*;
-import com.app.recipe.repositories.CategoryRepository;
-import com.app.recipe.repositories.RecipeRepository;
-import com.app.recipe.repositories.UnitOfMeasureRepository;
-import lombok.extern.slf4j.Slf4j;
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import com.app.recipe.domain.Category;
+import com.app.recipe.domain.Difficulty;
+import com.app.recipe.domain.Ingredient;
+import com.app.recipe.domain.Notes;
+import com.app.recipe.domain.Recipe;
+import com.app.recipe.domain.UnitOfMeasure;
+import com.app.recipe.repositories.CategoryRepository;
+import com.app.recipe.repositories.RecipeRepository;
+import com.app.recipe.repositories.UnitOfMeasureRepository;
+import com.app.recipe.repositories.reactive.UnitOfMeasureReactiveRepository;
+
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * Created by jt on 6/13/17.
@@ -25,6 +34,7 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
     private final CategoryRepository categoryRepository;
     private final RecipeRepository recipeRepository;
     private final UnitOfMeasureRepository unitOfMeasureRepository;
+    
 
     public RecipeBootstrap(CategoryRepository categoryRepository,
                            RecipeRepository recipeRepository, UnitOfMeasureRepository unitOfMeasureRepository) {
