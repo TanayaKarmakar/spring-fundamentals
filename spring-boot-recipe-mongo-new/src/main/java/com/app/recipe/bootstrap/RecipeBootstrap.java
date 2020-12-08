@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
@@ -20,7 +19,6 @@ import com.app.recipe.domain.UnitOfMeasure;
 import com.app.recipe.repositories.CategoryRepository;
 import com.app.recipe.repositories.RecipeRepository;
 import com.app.recipe.repositories.UnitOfMeasureRepository;
-import com.app.recipe.repositories.reactive.UnitOfMeasureReactiveRepository;
 
 import lombok.extern.slf4j.Slf4j;
 

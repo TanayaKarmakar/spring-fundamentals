@@ -4,6 +4,6 @@ import org.springframework.data.mongodb.repository.ReactiveMongoRepository;
 
 import com.app.recipe.domain.Recipe;
 
-public interface RecipeReactiveRepository extends ReactiveMongoRepository<Recipe, Long> {
+public interface RecipeReactiveRepository extends ReactiveMongoRepository<Recipe, String> {
 
 }
