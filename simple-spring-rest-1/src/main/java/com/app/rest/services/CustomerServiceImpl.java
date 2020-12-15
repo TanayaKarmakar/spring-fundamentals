@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.app.rest.api.v1.mapper.CustomerMapper;
 import com.app.rest.api.v1.model.CustomerDTO;
+import com.app.rest.controllers.v1.CustomerController;
 import com.app.rest.domain.Customer;
 import com.app.rest.repositories.CustomerRepository;
 
@@ -31,7 +32,7 @@ public class CustomerServiceImpl implements CustomerService {
 	public CustomerDTO getCustomerById(Long id) {
 		return customerRepository.findById(id).map(customer -> {
 			return populateCustomerDTO(customer);
-		}).orElseThrow(RuntimeException::new);
+		}).orElseThrow(ResourceNotFoundException::new);
 	}
 
 	@Override
@@ -61,22 +62,27 @@ public class CustomerServiceImpl implements CustomerService {
             }
 
             return populateCustomerDTO(customerRepository.save(customer));
-        }).orElseThrow(RuntimeException::new); //todo implement better exception handling;
+        }).orElseThrow(ResourceNotFoundException::new); //todo implement better exception handling;
+	}
+	
+	@Override
+	public void deleteCustomerById(Long id) {
+		customerRepository.deleteById(id);
 	}
 	
 	private CustomerDTO saveAndReturnDTO(Customer customer) {
         Customer savedCustomer = customerRepository.save(customer);
 
-        CustomerDTO returnDto = customerMapper.customerToCustomerDTO(savedCustomer);
-
-        returnDto.setCustomerUrl("/api/v1/customer/" + savedCustomer.getId());
-
-        return returnDto;
+        return populateCustomerDTO(savedCustomer);
     }
 	
 	private CustomerDTO populateCustomerDTO(Customer customer) {
 		CustomerDTO customerDTO = customerMapper.customerToCustomerDTO(customer);
-		customerDTO.setCustomerUrl("/api/v1/customers/" + customer.getId());
+		customerDTO.setCustomerUrl(getCustomerUrl(customer.getId()));
 		return customerDTO;
+	}
+	
+	private String getCustomerUrl(Long id) {
+		return CustomerController.BASE_URL + "/" + id;
 	}
 }
